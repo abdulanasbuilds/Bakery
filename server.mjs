@@ -62,5 +62,5 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(port, '0.0.0.0', () => {
-  console.log(`Luna Rossa exact mirror listening on 0.0.0.0:${port}`);
+  console.log(`Creme Russian Bakery exact mirror listening on 0.0.0.0:${port}`);
 });

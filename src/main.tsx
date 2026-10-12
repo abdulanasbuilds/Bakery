@@ -4,7 +4,7 @@ const SOURCE_SITE = 'https://lunarossa.framer.website/';
 
 function App() {
   return (
-    <main className="mirror-shell" aria-label="Luna Rossa mirror">
+    <main className="mirror-shell" aria-label="Creme Russian Bakery mirror">
       <iframe
         className="mirror-frame"
         src={SOURCE_SITE}
