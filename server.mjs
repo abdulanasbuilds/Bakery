@@ -28,9 +28,14 @@ function safePath(urlPath) {
 
 async function sendFile(res, filePath, status = 200) {
   const extension = path.extname(filePath).toLowerCase();
+  const isDocument = extension === '.html' || extension === '.json';
+  const cacheControl = isDocument
+    ? 'public, max-age=60, s-maxage=600, stale-while-revalidate=86400'
+    : 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800';
+
   res.writeHead(status, {
     'Content-Type': contentTypes[extension] || 'application/octet-stream',
-    'Cache-Control': 'no-store',
+    'Cache-Control': cacheControl,
   });
   res.end(await readFile(filePath));
 }
