@@ -195,8 +195,15 @@
     });
     document.querySelectorAll('img').forEach(img=>{if(img.src.includes('570nw5MpwSdtacyjgSA2O1gti9k.svg')) img.src=logoSrc;});
   }
+  const observerOptions = {subtree:true,childList:true,attributes:true,attributeFilter:['src','href']};
+  const observer = new MutationObserver(() => {
+    // Disconnect while applying our own DOM fixes so they cannot retrigger this observer.
+    observer.disconnect();
+    patch();
+    observer.observe(document.body, observerOptions);
+  });
   patch();
-  new MutationObserver(patch).observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['src','href']});
+  observer.observe(document.body, observerOptions);
 })();
 </script>
 </body>
