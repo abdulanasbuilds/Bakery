@@ -166,7 +166,7 @@
     document.querySelectorAll('iframe').forEach(frame=>{if(/maps\.google|google\.com\/maps/.test(frame.src)||!frame.src){frame.remove();}});
     document.querySelectorAll('h5').forEach(h=>{
       const name=h.textContent||'';
-      const phone=(name.includes('General Enquiries')||name.includes('Orders & Catering'))?'+233 59 789 6078':null;
+      const phone=(name.includes('Contact Abdul Anas')||name.includes('Website Projects'))?'+233 59 789 6078':null;
       if(!phone)return;
       const box=h.closest('[data-framer-name=\"Contact Box\"]')||h.parentElement?.parentElement;
       if(box&&!box.querySelector('[data-bakery-phone]')&&!box.textContent.includes('+233')){
